@@ -1,0 +1,3 @@
+interface:
+  display_name: "Commit Message Storyteller"
+  short_description: "Explain the intent behind Conventional Commits"
