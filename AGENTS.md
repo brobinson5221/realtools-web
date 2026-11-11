@@ -40,6 +40,14 @@ what ran and what could not be checked. Lint success is not a passing test suite
 
 ## Commits and pull requests
 
+For coding tasks, work in a dedicated Git worktree and feature branch. Follow
+this repository's `.agents/skills/create-pr/SKILL.md` to finish each task with a
+scoped commit, branch push, and pull request, unless the user requests a different
+deliverable. This workflow authorizes those actions for the requested task.
+Use the repository's review, commit-message, and PR-writing skills as directed
+by `create-pr`. Verify GitHub checks on the latest PR head and leave the PR open
+for the user to review and merge.
+
 Work on a feature branch, preserve unrelated user edits, and submit changes through
 pull requests. Push, create PRs, and merge only within the user's authorization.
 
