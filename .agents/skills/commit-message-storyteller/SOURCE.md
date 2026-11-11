@@ -2,7 +2,7 @@
 
 Original: [Commit Message Storyteller — Awesome Copilot](https://awesome-copilot.github.com/skill/commit-message-storyteller/)
 
-Repository: https://github.com/github/awesome-copilot/tree/main/skills/commit-message-storyteller
+Repository: <https://github.com/github/awesome-copilot/tree/main/skills/commit-message-storyteller>
 
 Reviewed on 2026-10-19. Latest commit affecting the source skill at review:
 `252f342650f04b6c79b67c447edecc7a5965b8f7`.

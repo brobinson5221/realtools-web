@@ -1,7 +1,7 @@
 # Conventional Commits and narrative guidance
 
 Adapted from the Awesome Copilot reference guide. See ../SOURCE.md for provenance.
-Specification: https://www.conventionalcommits.org/en/v1.0.0/
+Specification: <https://www.conventionalcommits.org/en/v1.0.0/>
 
 ## Types and scopes
 
