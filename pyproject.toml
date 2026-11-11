@@ -1,15 +1,11 @@
 [project]
-name = "py-template"
+name = "realapp-tools"
 version = "0.1.0"
 requires-python = ">=3.15"
-dependencies = []
+dependencies = ["fastapi>=0.162.4", "pydantic>=2.14.3", "uvicorn>=0.54.0"]
 
 [dependency-groups]
-dev = [
-    "commitizen>=4.19.3",
-    "pre-commit>=4.7.0",
-    "ruff>=0.17.4",
-]
+dev = ["commitizen>=4.19.3", "pre-commit>=4.7.0", "ruff>=0.17.4"]
 
 [tool.ruff]
 line-length = 100
@@ -23,7 +19,7 @@ exclude = [
     ".git",
     ".github",
     ".vscode",
-    "LICENSE"
+    "LICENSE",
 ]
 
 [tool.ruff.lint]
@@ -37,6 +33,9 @@ ignore = [
     "D105",
     "D106",
     "D107",
+    "D203",
+    "D213",
+    "COM812",
     "T201",
     "W292",
     "ANN001",
@@ -47,6 +46,10 @@ ignore = [
     "ERA001",
     "CPY001",
 ]
+
+[tool.ruff.lint.per-file-ignores]
+# This suite uses unittest assertions.
+"tests/test_card_upgrade.py" = ["PT009"]
 
 [tool.ruff.format]
 quote-style = "double"
