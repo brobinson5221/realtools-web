@@ -6,8 +6,14 @@ Read `README.md`, `pyproject.toml`, and `.github/workflows/` before making chang
 Discover source layout, run commands, and test commands from the current project.
 Keep this guidance updated as the project grows.
 
-This template starts without application code, a test runner, or build and
-deployment workflows. Introduce those only when the project needs them.
+Real App Tools uses a FastAPI backend and a React frontend built with Vite. The
+card upgrade calculator is the first tool.
+
+- `realapp_tools/main.py` registers API routers under `/api/v1`.
+- `realapp_tools/card_upgrade.py` validates calculator inputs and compares upgrades.
+- `frontend/src/main.jsx` mounts the React app. `frontend/src/card-upgrade.jsx`
+  calls the calculator endpoint at `/api/v1/card-upgrade/compare`.
+- `tests/` contains Python `unittest` tests.
 
 ## Setup and dependencies
 
@@ -19,24 +25,39 @@ uv sync --locked
 uv run pre-commit install
 ```
 
-Use `uv run` for project commands, `uv add PACKAGE` for runtime dependencies, and
-`uv add --dev PACKAGE` for development tools. Commit `pyproject.toml` and `uv.lock`
-together when dependencies change. After renaming a new template copy, run
-`uv lock` before syncing.
+Use `uv run --locked` for Python commands. Use `uv add PACKAGE` for runtime
+dependencies and `uv add --dev PACKAGE` for development tools. Update
+`pyproject.toml` and `uv.lock` together when Python dependencies change.
+
+Use `npm --prefix frontend ci` to install frontend dependencies. Update
+`frontend/package.json` and `frontend/package-lock.json` together when frontend
+dependencies change. On Windows PowerShell, use `npm.cmd` if script execution
+policy blocks `npm`.
+
+Follow the README to start the API and Vite in separate terminals. The Vite proxy
+routes `/api` to the Python server on port 8000. Stop task-started dev servers and
+remove temporary folders created for the task when they are no longer needed.
 
 ## Validation
 
-Follow the Ruff configuration in `pyproject.toml`. Before submitting changes:
+Follow the Python, Ruff lint, and Ruff formatting settings in `pyproject.toml`.
+For Markdown edits, read the repository's `.markdownlint.json` and apply its rules.
+The VS Code markdownlint extension uses this file.
+
+Before submitting Python changes:
 
 ```sh
 uv run --locked ruff check .
 uv run --locked ruff format --check .
 uv run --locked pre-commit run --all-files
+uv run --locked python -m unittest discover -s tests
 ```
 
-Apply formatting with `uv run ruff format .`. Review hook changes and stage them
-before retrying a commit. Run relevant tests when the project has them; report
-what ran and what could not be checked. Lint success is not a passing test suite.
+Apply formatting with `uv run --locked ruff format .`. Review any hook edits
+before staging them and retrying a commit. For frontend changes, run
+`npm --prefix frontend run build`. For changes to the calculator flow, verify
+that editing inputs in the browser updates the result through the Python API.
+Report which checks ran and any that could not run.
 
 ## Commits and pull requests
 
@@ -56,10 +77,9 @@ Use Conventional Commits for commit subjects and PR titles, such as
 `commit-message-storyteller` skill when available and base messages on the staged
 diff.
 
-The included workflows check Ruff and PR titles. Use squash merging with the PR
-title as the commit message. Each repository created from the template needs its
-own rulesets and merge settings; verify those settings before assuming checks
-are required.
+The included workflows check Ruff and PR titles. Verify the repository rulesets
+to determine which checks are required. Use squash merging with the PR title as
+the commit message.
 
 ## Current documentation
 
