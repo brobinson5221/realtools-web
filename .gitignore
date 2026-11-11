@@ -5,6 +5,10 @@ __pycache__/
 # Virtual Environments
 .venv/
 
+# Frontend
+node_modules/
+dist/
+
 # Ruff
 .ruff_cache/
 
