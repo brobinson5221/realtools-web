@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import { CardUpgrade } from "./card-upgrade.jsx";
 import "./styles.css";
+import { CardUpgrade } from "./tools/card-upgrade/CardUpgrade.jsx";
 
 createRoot(document.getElementById("root")).render(
   <main>

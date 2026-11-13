@@ -44,9 +44,12 @@ and On This Day earnings.
 
 ## Add another tool
 
-Add its API router under `realapp_tools/` and register it in
-`realapp_tools/main.py` under `/api/v1`. Add its React component under
-`frontend/src/` and expose it from the app entry point. Tool calculations are
+Give each tool a package under `realapp_tools/tools/` and a matching folder
+under `frontend/src/tools/`. The card upgrade tool keeps its calculation and
+input model in `calculator.py`, with HTTP registration in `routes.py`. Register
+each router in `realapp_tools/main.py` under `/api/v1`. Keep each tool's React
+components and styles in its folder, and expose the tool from
+`frontend/src/main.jsx`. Tool calculations are
 stateless, so API instances can scale independently of the frontend. A deployed
 frontend should route `/api` to the Python service on the same origin.
 
