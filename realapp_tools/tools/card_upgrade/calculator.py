@@ -1,7 +1,6 @@
 import math
 from typing import Annotated, TypedDict
 
-from fastapi import APIRouter
 from pydantic import BaseModel, Field
 
 # https://docs.realapp.link/collect/player-cards
@@ -49,7 +48,6 @@ TIERS = (
 )
 
 Rax = Annotated[int, Field(ge=0, le=1_000_000_000, strict=True)]
-router = APIRouter(prefix="/card-upgrade", tags=["Card upgrades"])
 
 
 class UpgradeInputs(BaseModel):
@@ -122,6 +120,3 @@ def compare_upgrades(inputs: UpgradeInputs) -> Comparison:
         "recommendation": recommendation,
         "upgrades": upgrades,
     }
-
-
-router.add_api_route("/compare", compare_upgrades, methods=["POST"])

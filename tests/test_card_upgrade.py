@@ -1,6 +1,6 @@
 import unittest
 
-from realapp_tools.card_upgrade import UpgradeInputs, compare_upgrades
+from realapp_tools.tools.card_upgrade.calculator import UpgradeInputs, compare_upgrades
 
 
 class CardUpgradeTests(unittest.TestCase):

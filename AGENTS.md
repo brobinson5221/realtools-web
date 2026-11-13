@@ -10,9 +10,10 @@ Real App Tools uses a FastAPI backend and a React frontend built with Vite. The
 card upgrade calculator is the first tool.
 
 - `realapp_tools/main.py` registers API routers under `/api/v1`.
-- `realapp_tools/card_upgrade.py` validates calculator inputs and compares upgrades.
-- `frontend/src/main.jsx` mounts the React app. `frontend/src/card-upgrade.jsx`
-  calls the calculator endpoint at `/api/v1/card-upgrade/compare`.
+- `realapp_tools/tools/card_upgrade/` holds calculator logic and input validation
+  in `calculator.py` and HTTP registration in `routes.py`.
+- `frontend/src/main.jsx` mounts the React app. `frontend/src/tools/card-upgrade/`
+  holds the calculator UI and styles. It calls `/api/v1/card-upgrade/compare`.
 - `tests/` contains Python `unittest` tests.
 
 ## Setup and dependencies
